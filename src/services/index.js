@@ -12,5 +12,16 @@ const api = axios.create({
 
 
 const services = {
+  getAlunos(callback) {
+    api.get("/alunos").then((response) => {
+      if (callback != undefined) {
+        callback(response.data);
+      }
+    });
+  },
+  getAlunosPromisse() {
+    return api.get("/alunos");
+  }
 
 }
+export default services;
